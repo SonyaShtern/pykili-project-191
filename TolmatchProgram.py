@@ -1,6 +1,11 @@
 import telebot, eng_rus, rus_eng, adding_word
 from telebot import apihelper, types
 
+'''Все функция написаны в отдельных файлах и используются как модули, чтобы код самого бота было возможно разобрать
+eng_rus -- нахождение перевода с англ. на русский + толкование из Ожегова
+rus_eng -- нахождения перевода с рус. на англ
+adding_word -- добавление нового слова в словарь'''
+
 
 apihelper.proxy = {"https": "socks5://user42399:zeno9h@45.90.197.187:18943",
                    "https": "socks5://127.0.0.1:9050"}
@@ -65,7 +70,7 @@ def add_slovo(message):
 
 def adding(message):
     new_slovo = message.text.lower()
-    bot.send_message(message.chat.id, adding_word.adding(new_slovo)) # еще не написано
+    bot.send_message(message.chat.id, adding_word.adding(new_slovo)) 
 
 @bot.message_handler(commands=['help'])
 def help(message):
